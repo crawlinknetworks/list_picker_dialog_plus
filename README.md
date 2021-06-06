@@ -4,6 +4,8 @@ List Dialog Picker with search and keyboard navigation.
 
 ## Getting Started
  
+ ![](https://github.com/crawlinknetworks/list_picker_dialog_plus/blob/master/screenshots/screen1.png?raw=true)
+
 ## Install
 
 ##### pubspec.yaml
