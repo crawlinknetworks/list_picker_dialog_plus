@@ -43,7 +43,31 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 60,
             ),
             ElevatedButton(
-              child: Text("Open List Picker"),
+              child: Text("Simple List Picker"),
+              onPressed: () async {
+                var item = await showTextListPicker(
+                  context: context,
+                  selectedItem: _selectedItem,
+                  findFn: (str) async => [
+                    "Apple",
+                    "Bannana",
+                    "Grapes",
+                    "Orrange",
+                    "Pineapple",
+                  ],
+                );
+                if (item != null) {
+                  setState(() {
+                    _selectedItem = item;
+                  });
+                }
+              },
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            ElevatedButton(
+              child: Text("Advance List Picker"),
               onPressed: () async {
                 var item = await showListPicker(
                     context: context,
@@ -55,7 +79,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           "Orrange",
                           "Pineapple",
                         ],
-                        
                     filterFn: (dynamic item, str) =>
                         item.toLowerCase().indexOf(str.toLowerCase()) >= 0,
                     listItemFn: (item, position, focused, selected, onTap) =>
