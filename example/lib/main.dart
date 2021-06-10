@@ -81,7 +81,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                     filterFn: (dynamic item, str) =>
                         item.toLowerCase().indexOf(str.toLowerCase()) >= 0,
-                    listItemFn: (item, position, focused, selected, onTap) =>
+                    listItemFn: (String item, position, focused, selected,
+                            onTap) =>
                         ListTile(
                           title: Text(
                             item,

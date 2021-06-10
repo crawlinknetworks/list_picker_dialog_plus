@@ -11,28 +11,28 @@ import './src/list-picker-dialog.dart';
 ///
 /// * [context] BuildContext [required]
 /// * [findFn] Function to retun text list [required]
-/// * [listItemFn] Generator function to create [ListTile]  
+/// * [listItemFn] Generator function to create [ListTile]
 /// * [filterFn] Filter function for search
 /// * [searchDecoration] Search text filed decoration
 /// * [title] Dialog title
 /// * [selectedItem] Initial Selected Item
-Future<dynamic> showListPicker({
+Future<T?> showListPicker<T>({
   required BuildContext context,
-  required Future<List<dynamic>> Function(String str) findFn,
+  required Future<List<T>> Function(String str) findFn,
   required ListTile Function(
-    dynamic item,
+    T item,
     int position,
     bool focused,
     bool selected,
     Function() onTap,
   )
       listItemFn,
-  bool Function(dynamic item, String str)? filterFn,
+  bool Function(T item, String str)? filterFn,
   InputDecoration? searchDecoration,
   Widget? title,
-  dynamic selectedItem,
+  T? selectedItem,
 }) {
-  return showDialog<dynamic>(
+  return showDialog<T>(
       context: context,
       builder: (context) => ListPickerDialog(
             findFn: findFn,
@@ -50,28 +50,28 @@ Future<dynamic> showListPicker({
 ///
 /// * [context] BuildContext [required]
 /// * [findFn] Function to retun text list [required]
-/// * [listItemFn] Generator function to create [ListTile]  
+/// * [listItemFn] Generator function to create [ListTile]
 /// * [filterFn] Filter function for search
 /// * [searchDecoration] Search text filed decoration
 /// * [title] Dialog title
 /// * [selectedItem] Initial Selected Item
-Future<dynamic> showTextListPicker({
+Future<String?> showTextListPicker({
   required BuildContext context,
-  required Future<List<dynamic>> Function(String str) findFn,
+  required Future<List<String>> Function(String str) findFn,
   ListTile Function(
-    dynamic item,
+    String item,
     int position,
     bool focused,
     bool selected,
     Function() onTap,
   )?
       listItemFn,
-  bool Function(dynamic item, String str)? filterFn,
+  bool Function(String item, String str)? filterFn,
   InputDecoration? searchDecoration,
   Widget? title,
-  dynamic selectedItem,
+  String? selectedItem,
 }) {
-  return showDialog<dynamic>(
+  return showDialog<String>(
       context: context,
       builder: (context) => ListPickerDialog(
             findFn: findFn,
